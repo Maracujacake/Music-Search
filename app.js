@@ -6,7 +6,11 @@ const prevAndNextContainer = document.querySelector('#prev-and-next-container')
 
 const apiUrl = `https://api.lyrics.ovh`
 
-form.addEventListener('submit', event =>{
+const fetchSongs = term => {
+    fetch(`${apiUrl}/suggest/${term}`)
+}
+
+form.addEventListener('submit', event => {
     event.preventDefault()
 
     const searchTerm = searchInput.value.trim()
@@ -17,5 +21,8 @@ form.addEventListener('submit', event =>{
         function alertaCampos(){
             alert("Preencha corretamente os campos")
         }
+        return
     }
+
+    fetchSongs(searchTerm)
 })
