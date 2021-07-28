@@ -3,13 +3,14 @@ const searchInput = document.querySelector('#search')
 const songsContainer = document.querySelector('#songs-container')
 const prevAndNextContainer = document.querySelector('#prev-and-next-container')
 
-
+/* trocar a api pois esta já não está mais funcionando*/ 
 const apiUrl = `https://api.lyrics.ovh`
 
 const fetchSongs = term => {
     fetch(`${apiUrl}/suggest/${term}`)
-        .then(response => {
-            console.log(response)
+        .then(response => response.json())
+        .then ( data =>{
+            console.log(data)
         })
 }
 
