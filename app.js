@@ -9,6 +9,7 @@ const insertSongsIntoPage = songsInfo =>{
     songsContainer.innerHTML = songsContainer.innerHTML = songsInfo.data.map(song => `
     <li class="song">
         <span class="songs-artist"> <strong> ${song.artist.name} </strong> - ${song.title} </span>
+        <button class="btn" data-artist="${song.artist.name}" data-song-title="${song.title}"> Ver Letra </button>
     </li>`).join('') 
 }
 
