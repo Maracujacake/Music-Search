@@ -6,8 +6,10 @@ const prevAndNextContainer = document.querySelector('#prev-and-next-container')
 /* trocar a api pois esta já não está mais funcionando*/ 
 const apiUrl = `https://api.lyrics.ovh`
 const insertSongsIntoPage = songsInfo =>{
-    console.log(songsInfo)
-    songsContainer.innerHTML = ``
+    songsContainer.innerHTML = songsContainer.innerHTML = songsInfo.data.map(song => `
+    <li class="song">
+        <span class="songs-artist"> <strong> ${song.artist.name} </strong> - ${song.title} </span>
+    </li>`).join('') 
 }
 
 const fetchSongs = async term => {
