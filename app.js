@@ -6,6 +6,7 @@ const prevAndNextContainer = document.querySelector('#prev-and-next-container')
 /* trocar a api pois esta já não está mais funcionando*/ 
 const apiUrl = `https://api.lyrics.ovh`
 const insertSongsIntoPage = songsInfo =>{
+    debugger
     songsContainer.innerHTML = songsContainer.innerHTML = songsInfo.data.map(song => `
     <li class="song">
         <span class="songs-artist"> <strong> ${song.artist.name} </strong> - ${song.title} </span>
