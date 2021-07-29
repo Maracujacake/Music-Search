@@ -5,6 +5,14 @@ const prevAndNextContainer = document.querySelector('#prev-and-next-container')
 
 /* trocar a api pois esta já não está mais funcionando*/ 
 const apiUrl = `https://api.lyrics.ovh`
+
+const getMoreSongs = async url => {
+    const response = await fetch(`https://cors-anywhere.herokuapp.com/${url}`)
+    const data = await response.json()
+
+    insertSongsIntoPage(data)
+}
+
 const insertSongsIntoPage = songsInfo =>{
     songsContainer.innerHTML = songsContainer.innerHTML = songsInfo.data.map(song => `
     <li class="song">
