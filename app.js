@@ -56,6 +56,20 @@ form.addEventListener('submit', event => {
     fetchSongs(searchTerm)
 })
 
+const fetchLyrics = async (artist, songTitle) =>{
+    const response = await fetch(`${apiURL}/v1/${artist}/${songTitle}`)
+    const data = await response.json()
+}
+
 songsContainer.addEventListener('click', event =>{
-    
+    const clickedElement = event.target
+
+    if(clickedElement.tagname === 'BUTTON') {
+        const artist = clickedElement.getAttribute('data-artist')
+        const songTitle = clickedElement.getAttribute('data-song-title')
+        
+        fetchLyrics(artist, songTitle)
+    }
 })
+
+
