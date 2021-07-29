@@ -55,3 +55,7 @@ form.addEventListener('submit', event => {
 
     fetchSongs(searchTerm)
 })
+
+songsContainer.addEventListener('click', event =>{
+    
+})
