@@ -35,6 +35,7 @@ const insertSongsIntoPage = songsInfo =>{
 const fetchSongs = async term => {
     const response = await fetch(`${apiUrl}/suggest/${term}`)
     const data = await response.json()
+    const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>')
 
     insertSongsIntoPage(data)
 }
@@ -75,6 +76,7 @@ songsContainer.addEventListener('click', event =>{
         const artist = clickedElement.getAttribute('data-artist')
         const songTitle = clickedElement.getAttribute('data-song-title')
         
+        prevAndNextContainer.innerHTML = ''
         fetchLyrics(artist, songTitle)
     }
 })
